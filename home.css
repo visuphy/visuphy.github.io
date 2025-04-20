@@ -1,0 +1,161 @@
+/* --- START OF FILE home.css --- */
+
+/* Container for the home page content */
+.home-container {
+    max-width: 1400px; /* Adjust max-width as needed */
+    margin: 20px auto; /* Centering and vertical spacing */
+    padding: 0 15px; /* Horizontal padding */
+}
+
+.home-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Grid layout for the simulation cards */
+.simulations-grid {
+    display: grid;
+    /* Responsive columns: Adjust minmax width (300px here) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Space between cards */
+}
+
+/* Individual simulation card styling */
+.simulation-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden; /* Keeps image corners rounded */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column; /* Stack image, body, meta vertically */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.simulation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Style the link wrapping the image and body for better click area */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from card */
+    display: block; /* Make the link a block element */
+}
+
+/* Card image styling */
+.card-image {
+    display: block;
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Or your preferred aspect ratio */
+    object-fit: cover; /* Cover the area, may crop */
+    border-bottom: 1px solid #eee; /* Separator */
+}
+
+/* Card body content (title, description) */
+.card-body {
+    padding: 15px;
+    flex-grow: 1; /* Allow body to grow and push meta down */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.25em;
+    color: #2c3e50;
+}
+
+.card-description {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Pushes meta down */
+}
+
+/* Meta section at the bottom (author, GitHub link) */
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f8f9fa; /* Slightly different background */
+    border-top: 1px solid #eee;
+    font-size: 0.85em;
+}
+
+.meta-author {
+    color: #666;
+}
+
+.meta-author a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.meta-author a:hover {
+    text-decoration: underline;
+}
+
+/* GitHub icon link */
+.github-link {
+    color: #333;
+    font-size: 1.4em; /* Make icon slightly larger */
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.github-link:hover {
+    color: #000; /* Darken on hover */
+}
+
+/* Responsive adjustments for the grid */
+@media (max-width: 768px) {
+    .simulations-grid {
+        /* Adjust minmax for smaller screens if needed, e.g., 280px */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+    }
+    .home-container h1 {
+        font-size: 1.8em;
+    }
+    .card-title {
+        font-size: 1.15em;
+    }
+    .card-description {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        padding: 0 10px;
+    }
+    .simulations-grid {
+        /* Single column on very small screens */
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+     .home-container h1 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+     .card-body {
+        padding: 12px;
+     }
+     .card-meta {
+        padding: 8px 12px;
+        font-size: 0.8em;
+     }
+}
+
+/* --- END OF FILE home.css --- */

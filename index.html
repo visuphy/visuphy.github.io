@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physicify SimuLab - Home</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <!-- Page-Specific Styles -->
+    <link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+
+    <!-- Dynamic Header Include -->
+    <div id="header-placeholder"></div>
+
+    <main class="home-container">
+        <h1>Available Simulations</h1>
+
+        <div class="simulations-grid">
+
+            <!-- Card 1: Gaussian Beam -->
+            <div class="simulation-card">
+                <a href="index.html" class="card-link">
+                    <img src="screenshot_gaussian_beam.png" alt="Screenshot of Gaussian Beam Simulation" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">Gaussian Beam Propagation</h3>
+                        <p class="card-description">
+                            Simulate the propagation of a Gaussian laser beam through various optical elements like lenses and mirrors using ABCD matrix formalism.
+                        </p>
+                    </div>
+                </a>
+                <div class="card-meta">
+                    <div class="meta-author">
+                        Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                    </div>
+                    <a href="https://github.com/physicify-simulab/Gaussianbeam" target="_blank" class="github-link" title="View Source on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Placeholder Example -->
+            <div class="simulation-card">
+                 <a href="#" class="card-link"> <!-- Link to the simulation page -->
+                    <img src="placeholder.png" alt="Screenshot of Another Simulation" class="card-image">
+                    <div class="card-body">
+                        <h3 class="card-title">Another Simulation Title</h3>
+                        <p class="card-description">
+                            A brief description of what this other simulation does and the physics principles it demonstrates.
+                        </p>
+                    </div>
+                </a>
+                <div class="card-meta">
+                     <div class="meta-author">
+                        Author: <a href="#" target="_blank">John Smith</a>
+                    </div>
+                    <a href="#" target="_blank" class="github-link" title="View Source on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+             <!-- Add more simulation-card divs here as needed -->
+
+        </div> <!-- end .simulations-grid -->
+
+    </main>
+
+    <!-- Dynamic Footer Include -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script to include Header/Footer -->
+    <script>
+        // Simple function to fetch and insert external HTML snippets
+        // Ensure this function is defined or included if it's in a separate file
+        function includeHTML(elementId, filePath) {
+          fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+              const element = document.getElementById(elementId);
+              if (element) {
+                  element.innerHTML = data;
+              } else {
+                  console.error(`Element with ID '${elementId}' not found.`);
+              }
+            })
+            .catch(error => console.error('Error loading ' + filePath + ':', error));
+        }
+
+        // Load Header and Footer
+        includeHTML('header-placeholder', 'header.html');
+        includeHTML('footer-placeholder', 'footer.html');
+    </script>
+
+</body>
+</html>

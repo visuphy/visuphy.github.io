@@ -1,0 +1,66 @@
+/* === HEADER STYLES START === */
+header {
+    background-color: #cdd3da;
+    padding: 8px 15px;
+    border-bottom: 1px solid #aab1ba;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header-left a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #212529;
+    font-weight: bold;
+    font-size: 1.5em;
+    border: 2px solid transparent;
+    padding: 4px 6px;
+    border-radius: 3px;
+  }
+  
+  .header-left a:hover {
+    color: #004494;
+    border-color: #004494;
+  }
+  
+  .header-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+  }
+  
+  .header-right {
+    text-align: right;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #343a40;
+  }
+  
+  .header-right a {
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  .header-right a:hover {
+    text-decoration: underline;
+  }
+  /* === HEADER STYLES END === */
+  

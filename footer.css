@@ -1,0 +1,134 @@
+/* ================== Footer Styles start ================== */
+footer {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    font-size: 1em;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .footer-left {
+    flex-basis: 30%;
+    padding: 10px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  
+  .footer-left ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .footer-left li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-left a {
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  .footer-left a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  .footer-socials {
+    margin-bottom: 15px;
+  }
+  
+  .footer-socials .social-button {
+    display: inline-block;
+    background: none;
+    border: none;
+    margin: 0 8px;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .footer-socials .social-button i {
+    color: #333;
+    transition: opacity 0.2s ease;
+  }
+  
+  .footer-socials .social-button:hover i {
+    opacity: 0.8;
+  }
+  
+  .footer-right {
+    flex-basis: 30%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: auto;
+    font-size: 1em;
+  }
+  
+  .footer-support {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .footer-support span {
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  .bmc-button {
+    vertical-align: middle;
+    line-height: normal !important;
+    display: inline-block;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-left,
+    .footer-middle,
+    .footer-right {
+      flex-basis: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 10px 0;
+      margin-left: 0;
+    }
+    .footer-socials .social-button {
+      margin: 0 6px;
+    }
+    .footer-support {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-support span {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  /* ================== Footer Styles end ================== */
+  
