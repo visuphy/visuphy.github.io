@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physicify SimuLab - About Team</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <!-- Page-Specific Styles -->
+    <link rel="stylesheet" href="about-team.css">
+
+</head>
+<body>
+
+    <!-- Dynamic Header Include -->
+    <div id="header-placeholder"></div>
+
+    <main class="team-container">
+        <h1>Our Team</h1>
+
+        <div class="team-grid">
+
+            <!-- Team Member Card 1: Hussein-Tofaili -->
+            <div class="team-member-card">
+                <img src="https://github.com/Hussein-Tofaili.png" alt="Profile picture of Hussein-Tofaili" class="member-photo">
+                <div class="member-info">
+                    <h3 class="member-name">
+                        <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                    </h3>
+                    <p class="member-description">
+                        Founder of Physicify, passionate about physics education and creating interactive learning tools.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member Card 3: Placeholder -->
+            <div class="team-member-card">
+                 <img src="https://github.com/github.png?size=80" alt="Placeholder profile picture" class="member-photo">
+                <div class="member-info">
+                    <h3 class="member-name">
+                        <a href="#" target="_blank">Future Member</a>
+                    </h3>
+                    <p class="member-description">
+                        Join the team! We welcome contributions to make physics simulations accessible to everyone. <a href="mailto:physicifycontact@gmail.com">Contact us</a> and check out our <a href="https://github.com/physicify-simulab">GitHub</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Add more team-member-card divs here as needed -->
+
+        </div> <!-- end .team-grid -->
+
+    </main>
+
+    <!-- Dynamic Footer Include -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script to include Header/Footer (Same as index.html) -->
+    <script>
+        function includeHTML(elementId, filePath) {
+          fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+              const element = document.getElementById(elementId);
+              if (element) {
+                  element.innerHTML = data;
+              } else {
+                  console.error(`Element with ID '${elementId}' not found.`);
+              }
+            })
+            .catch(error => console.error('Error loading ' + filePath + ':', error));
+        }
+
+        // Load Header and Footer
+        includeHTML('header-placeholder', 'header.html');
+        includeHTML('footer-placeholder', 'footer.html');
+    </script>
+
+</body>
+</html>

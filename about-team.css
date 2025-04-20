@@ -1,0 +1,143 @@
+/* --- START OF FILE about-team.css --- */
+
+/* Container for the team page content */
+.team-container {
+    max-width: 1200px; /* Adjust max-width as needed */
+    margin: 20px auto; /* Centering and vertical spacing */
+    padding: 0 15px; /* Horizontal padding */
+}
+
+.team-container h1 {
+    text-align: center;
+    margin-bottom: 35px; /* More space below title */
+    color: #333;
+    font-size: 2.2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Grid layout for the team member cards */
+.team-grid {
+    display: grid;
+    /* Responsive columns: Adjust minmax width (e.g., 350px) */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px; /* Space between cards */
+}
+
+/* Individual team member card styling */
+.team-member-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.09);
+    display: flex; /* Align photo and info horizontally */
+    align-items: center; /* Vertically center items */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.team-member-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Member photo styling */
+.member-photo {
+    width: 80px;  /* Fixed width */
+    height: 80px; /* Fixed height */
+    border-radius: 50%; /* Circular frame */
+    object-fit: cover; /* Ensures image covers the area nicely */
+    margin-right: 20px; /* Space between photo and text */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    border: 3px solid #f0f0f0; /* Optional subtle border */
+}
+
+/* Container for text info (name, description) */
+.member-info {
+    flex-grow: 1; /* Allow text block to take remaining space */
+}
+
+/* Member name styling */
+.member-name {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+    color: #2c3e50;
+}
+
+.member-name a {
+    color: inherit; /* Name color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.member-name a:hover {
+    color: #0056b3; /* Link hover color */
+    text-decoration: underline;
+}
+
+/* Member description styling */
+.member-description {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 0; /* Remove bottom margin if it's the last element */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-container h1 {
+        font-size: 1.9em;
+        margin-bottom: 30px;
+    }
+    .team-grid {
+        /* Adjust minmax for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    .team-member-card {
+        padding: 15px;
+    }
+    .member-photo {
+        width: 70px;
+        height: 70px;
+        margin-right: 15px;
+    }
+    .member-name {
+        font-size: 1.2em;
+    }
+    .member-description {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-container {
+        padding: 0 10px;
+    }
+    .team-container h1 {
+        font-size: 1.7em;
+        margin-bottom: 25px;
+    }
+    .team-grid {
+        /* Single column on very small screens */
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+     .team-member-card {
+        flex-direction: column; /* Stack photo and text vertically */
+        align-items: center; /* Center items */
+        text-align: center; /* Center text */
+     }
+     .member-photo {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 15px; /* Add bottom margin */
+        width: 90px; /* Make photo slightly larger when stacked */
+        height: 90px;
+     }
+     .member-name {
+         font-size: 1.25em; /* Slightly larger name when stacked */
+     }
+}
+
+/* --- END OF FILE about-team.css --- */

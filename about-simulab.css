@@ -1,0 +1,166 @@
+/* --- START OF FILE about-simulab.css --- */
+
+/* Container for the about project page content */
+.about-project-container {
+    max-width: 900px; /* Slightly narrower for better readability */
+    margin: 30px auto; /* Centering and vertical spacing */
+    padding: 0 20px; /* Horizontal padding */
+    line-height: 1.7; /* Improve readability */
+    color: #333;
+}
+
+.about-project-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50; /* Slightly different color for emphasis */
+    font-size: 2.4em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Styling for each content section */
+.about-section {
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ddd; /* Subtle separator */
+}
+
+/* Remove bottom border from the last section */
+.about-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 20px; /* Adjust margin for last section */
+}
+
+
+.about-section h2 {
+    font-size: 1.8em;
+    color: #00b327; /* Theme color for headings */
+    margin-bottom: 15px;
+    display: flex; /* Align icon and text */
+    align-items: center;
+}
+
+/* Style for icons next to headings */
+.icon-left {
+    margin-right: 10px;
+    font-size: 0.9em; /* Make icon slightly smaller than text */
+    color: #b00909; /* Slightly brighter blue */
+}
+
+.about-section p {
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1.05em;
+}
+
+.about-section a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.about-section a:hover {
+    color: #003d80;
+    text-decoration: underline;
+}
+
+/* Styling for the bullet point list */
+.about-section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 10px; /* Indentation */
+    margin-top: 10px;
+}
+
+.about-section li {
+    margin-bottom: 12px;
+    position: relative; /* For positioning the icon */
+    padding-left: 25px; /* Space for the icon */
+    font-size: 1.05em;
+    color: #444;
+}
+
+.list-icon {
+    position: absolute;
+    left: 0;
+    top: 4px; /* Adjust vertical alignment */
+    color: #28a745; /* Green checkmark color */
+    font-size: 0.9em;
+}
+
+/* Button Styling (basic example, refine as needed) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+    background-color: #00801a;
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #2bef04;
+    color: #ffffff; /* Ensure text color remains white */
+    text-decoration: none; /* Prevent underline on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Specific styling for the team link section */
+.team-link {
+    text-align: center; /* Center button and text */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-project-container {
+        padding: 0 15px;
+        margin-top: 20px;
+    }
+    .about-project-container h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .about-section h2 {
+        font-size: 1.6em;
+    }
+    .about-section p,
+    .about-section li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+     .about-project-container {
+        padding: 0 10px;
+        margin-top: 15px;
+    }
+    .about-project-container h1 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    .about-section h2 {
+        font-size: 1.4em;
+    }
+     .about-section {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+    .btn {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+/* --- END OF FILE about-simulab.css --- */

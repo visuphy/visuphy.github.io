@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physicify SimuLab - About the Project</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <!-- Page-Specific Styles -->
+    <link rel="stylesheet" href="about-simulab.css">
+
+</head>
+<body>
+
+    <!-- Dynamic Header Include -->
+    <div id="header-placeholder"></div>
+
+    <main class="about-project-container">
+        <h1>About Physicify SimuLab</h1>
+
+        <section class="about-section overview">
+            <h2><i class="fas fa-rocket icon-left"></i>Our Genesis</h2>
+            <p>
+                Physicify SimuLab is an ambitious <a href="https://github.com/physicify-simulab/" target="_blank">open-source initiative</a> born from the <a href="https://www.youtube.com/@physicify" target="_blank">Physicify</a> YouTube channel. We noticed a gap between static textbook diagrams and the dynamic beauty of physics in action. Our goal is to bridge that gap by creating engaging, interactive physics simulations that run directly in your web browser – no installations required!
+            </p>
+        </section>
+
+        <section class="about-section mission">
+            <h2><i class="fas fa-bullseye icon-left"></i>Our Mission: Physics for Everyone</h2>
+            <p>
+                We believe that understanding physics should be accessible, intuitive, and fun. Our core mission is to:
+            </p>
+            <ul>
+                <li><i class="fas fa-check list-icon"></i> Develop high-quality, interactive physics simulations covering a wide range of topics.</li>
+                <li><i class="fas fa-check list-icon"></i> Make these simulations freely available to students, educators, and enthusiasts worldwide.</li>
+                <li><i class="fas fa-check list-icon"></i> Ensure accessibility across different devices and platforms through web-native technologies (HTML, CSS, JavaScript).</li>
+                <li><i class="fas fa-check list-icon"></i> Foster a deeper, more intuitive understanding of physical concepts through hands-on digital experimentation.</li>
+            </ul>
+        </section>
+
+        <section class="about-section philosophy">
+            <h2><i class="fas fa-lightbulb icon-left"></i>The Open Source Spirit</h2>
+            <p>
+                Transparency and collaboration are at the heart of Physicify SimuLab. By being open source, we invite the global community to inspect our code, learn from it, suggest improvements, and even contribute directly. We believe this collaborative approach leads to better, more robust, and more diverse learning tools. Every simulation has its source code readily available on <a href="https://github.com/physicify-simulab/" target="_blank">GitHub</a>.
+            </p>
+        </section>
+
+        <section class="about-section technology">
+             <h2><i class="fas fa-cogs icon-left"></i>Built for the Web</h2>
+            <p>
+                We leverage the power of modern web technologies – primarily HTML, CSS, and JavaScript – to build our simulations. This choice ensures maximum compatibility and accessibility. Whether you're on a desktop, laptop, tablet, or even a smartphone, you should be able to explore the wonders of physics with just a web browser.
+            </p>
+        </section>
+
+        <section class="about-section team-link">
+            <h2><i class="fas fa-users icon-left"></i>Meet the Team & Get Involved</h2>
+            <p>
+                Physicify SimuLab is driven by passionate individuals dedicated to physics education. Learn more about the people bringing these simulations to life!
+            </p>
+            <a href="https://physicify-simulab.github.io/homepage/about-team.html" class="btn btn-primary">Meet Our Team</a>
+            <p style="margin-top: 15px;">
+                Interested in contributing? Check out our <a href="https://github.com/physicify-simulab/" target="_blank">GitHub organization</a> or get in touch!
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Dynamic Footer Include -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script to include Header/Footer (Same as index.html) -->
+    <script>
+        function includeHTML(elementId, filePath) {
+          fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+              const element = document.getElementById(elementId);
+              if (element) {
+                  element.innerHTML = data;
+              } else {
+                  console.error(`Element with ID '${elementId}' not found.`);
+              }
+            })
+            .catch(error => console.error('Error loading ' + filePath + ':', error));
+        }
+
+        // Load Header and Footer
+        includeHTML('header-placeholder', 'header.html');
+        includeHTML('footer-placeholder', 'footer.html');
+    </script>
+
+</body>
+</html>
