@@ -3,41 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physicify SimuLab - Home</title>
+    <title>Physicify SimuLab - Interactive Physics Simulations</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Shared Styles -->
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
-    <!-- Page-Specific Styles -->
     <link rel="stylesheet" href="home.css">
-
 </head>
 <body>
-
     <!-- Dynamic Header Include -->
     <div id="header-placeholder"></div>
 
-    <main class="home-container">
-        <!-- Added Description Paragraph -->
-        <p class="intro-description">
-            Physicify SimuLab is an <a href="https://github.com/physicify-simulab/" target="_blank">open source</a> project from the <a href="https://www.youtube.com/@physicify" target="_blank">Physicify</a> YouTube channel. It aims at creating interactive physics simulations that can run natively in your browser.
-        </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <!-- Falling elements container - moved outside hero-background -->
+        <div class="falling-elements">
+            <!-- Multiple sets of falling elements -->
+            <div class="falling-set">
+                <span class="falling-element bracket">&lt;</span>
+                <span class="falling-element apple"></span>
+                <span class="falling-element bracket">/</span>
+                <span class="falling-element bracket">&gt;</span>
+            </div>
+            <div class="falling-set" style="animation-delay: 4s;">
+                <span class="falling-element bracket">&lt;</span>
+                <span class="falling-element apple">🍎</span>
+                <span class="falling-element bracket">/</span>
+                <span class="falling-element bracket">&gt;</span>
+            </div>
+            <div class="falling-set" style="animation-delay: 6s;">
+                <span class="falling-element bracket">&lt;</span>
+                <span class="falling-element apple">🍎</span>
+                <span class="falling-element bracket">/</span>
+                <span class="falling-element bracket">&gt;</span>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-subtitle">Welcome to</span>
+                Physicify SimuLab
+            </h1>
+            <p class="hero-description">
+                Explore the fascinating world of physics through interactive, browser-based simulations. 
+                Open source, educational, and built with passion.
+            </p>
+            <div class="hero-badges">
+                <span class="badge badge-open">
+                    <i class="fas fa-code-branch"></i> Open Source
+                </span>
+                <span class="badge badge-free">
+                    <i class="fas fa-gift"></i> Free Forever
+                </span>
+                <span class="badge badge-browser">
+                    <i class="fas fa-globe"></i> Browser-Based
+                </span>
+            </div>
+        </div>
+    </section>
 
-        <h1>Available Simulations</h1>
+    <!-- Rest of content remains the same -->
+    <main class="home-container">
+        <section class="featured-section">
+            <h2 class="section-title">
+                Interactive Physics Simulations
+            </h2>
+            <p class="section-subtitle">
+                Powered by <a href="https://physicify.org" target="_blank" class="highlight-link">Physicify</a> 
+                • Built by the community on 
+                <a href="https://github.com/physicify-simulab/" target="_blank" class="highlight-link">GitHub</a>
+            </p>
+        </section>
 
         <div class="simulations-grid">
-
-            <!-- Card 1: Gaussian Beam -->
-            <div class="simulation-card">
-                <a href="/Gaussianbeam" class="card-link"> <!-- NOTE: You might want this to link to the actual simulation page, not index.html -->
-                    <img src="https://raw.githubusercontent.com/physicify-simulab/Gaussianbeam/refs/heads/main/Screenshot.png" alt="Screenshot of Gaussian Beam Simulation" class="card-image">
+            <!-- Cards remain the same -->
+            <!-- Gaussian Beam Card -->
+            <article class="simulation-card">
+                <a href="/Gaussianbeam" class="card-link">
+                    <div class="card-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/physicify-simulab/Gaussianbeam/refs/heads/main/Screenshot.png" 
+                             alt="Gaussian Beam Simulation" 
+                             class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-category">Optics</span>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Gaussian Beam Propagation</h3>
                         <p class="card-description">
-                            Simulate the propagation of a Gaussian laser beam through various optical elements like lenses and mirrors using ABCD matrix formalism.
+                            Simulate laser beam propagation through optical elements using ABCD matrix formalism.
                         </p>
                     </div>
                 </a>
@@ -45,20 +108,31 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
-                    <a href="https://github.com/physicify-simulab/Gaussianbeam" target="_blank" class="github-link" title="View Source on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <div class="meta-actions">
+                        <a href="https://github.com/physicify-simulab/Gaussianbeam" target="_blank" class="action-button" title="View Source">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="action-button share-button" title="Share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Card 2: Polarization 3D -->
-            <div class="simulation-card">
-                 <a href="/Polarization" class="card-link"> <!-- Link to the simulation page -->
-                    <img src="https://raw.githubusercontent.com/physicify-simulab/Polarization/refs/heads/main/Screenshot.png" alt="Screenshot of Polarization Simulation" class="card-image">
+            </article>
+            <!-- Polarization Card -->
+            <article class="simulation-card">
+                <a href="/Polarization" class="card-link">
+                    <div class="card-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/physicify-simulab/Polarization/refs/heads/main/Screenshot.png" 
+                             alt="Polarization Simulation" 
+                             class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-category">Optics</span>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Polarization 3D Simulation</h3>
                         <p class="card-description">
-                            An interactive simulation demonstrating how the polarization state of light changes as it passes through various optical elements, visualized using Jones Calculus.
+                            Visualize light polarization changes through optical elements using Jones Calculus.
                         </p>
                     </div>
                 </a>
@@ -66,87 +140,123 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
-                    <a href="https://github.com/physicify-simulab/Polarization" target="_blank" class="github-link" title="View Source on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <div class="meta-actions">
+                        <a href="https://github.com/physicify-simulab/Polarization" target="_blank" class="action-button" title="View Source">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="action-button share-button" title="Share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="simulation-card">
-    <a href="/LaserPulseSimulator" class="card-link"> <!-- Link to the Laser Pulse simulation intro page -->
-        <img src="https://raw.githubusercontent.com/physicify-simulab/LaserPulseSimulator/main/Screenshot.png" alt="Screenshot of Laser Pulse Simulator" class="card-image">
-        <div class="card-body">
-            <h3 class="card-title">Laser Pulse Simulator</h3>
-            <p class="card-description">
-                A qualitative simulation exploring how laser pulses are formed from spectral components and how spectral phase (dispersion) affects their temporal shape.
-            </p>
-        </div>
-    </a>
-    <div class="card-meta">
-        <div class="meta-author">
-            Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
-        </div>
-        <a href="https://github.com/physicify-simulab/LaserPulseSimulator" target="_blank" class="github-link" title="View Source on GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-</div>
+            <!-- Laser Pulse Card -->
+            <article class="simulation-card">
+                <a href="/LaserPulseSimulator" class="card-link">
+                    <div class="card-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/physicify-simulab/LaserPulseSimulator/main/Screenshot.png" 
+                             alt="Laser Pulse Simulator" 
+                             class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-category">Ultrafast</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Laser Pulse Simulator</h3>
+                        <p class="card-description">
+                            Explore how laser pulses form from spectral components and dispersion effects.
+                        </p>
+                    </div>
+                </a>
+                <div class="card-meta">
+                    <div class="meta-author">
+                        Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                    </div>
+                    <div class="meta-actions">
+                        <a href="https://github.com/physicify-simulab/LaserPulseSimulator" target="_blank" class="action-button" title="View Source">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="action-button share-button" title="Share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
 
-    <div class="simulation-card">
-    <a href="https://simulab.physicify.org/PulseDispersionAnalyzer/" class="card-link"> <!-- Link to the PulseDispersionAnalyzer intro page -->
-        <img src="https://raw.githubusercontent.com/physicify-simulab/PulseDispersionAnalyzer/main/static/Screenshot.png" alt="Screenshot of PulseDispersionAnalyzer" class="card-image">
-        <div class="card-body">
-            <h3 class="card-title">Ultrafast Pulse Dispersion Analyzer</h3>
-            <p class="card-description">
-                A quantitative simulation that calculates ultrafast pulse temporal shape from dispersion coefficients.
-            </p>
+            <!-- Pulse Dispersion Analyzer Card -->
+            <article class="simulation-card">
+                <a href="https://simulab.physicify.org/PulseDispersionAnalyzer/" class="card-link">
+                    <div class="card-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/physicify-simulab/PulseDispersionAnalyzer/main/static/Screenshot.png" 
+                             alt="Pulse Dispersion Analyzer" 
+                             class="card-image">
+                        <div class="card-overlay">
+                            <span class="card-category">Ultrafast</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Ultrafast Pulse Dispersion Analyzer</h3>
+                        <p class="card-description">
+                            Calculate ultrafast pulse temporal shape from dispersion coefficients quantitatively.
+                        </p>
+                    </div>
+                </a>
+                <div class="card-meta">
+                    <div class="meta-author">
+                        Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                    </div>
+                    <div class="meta-actions">
+                        <a href="https://github.com/physicify-simulab/PulseDispersionAnalyzer" target="_blank" class="action-button" title="View Source">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="action-button share-button" title="Share">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <!-- Other cards... -->
         </div>
-    </a>
-    <div class="card-meta">
-        <div class="meta-author">
-            Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
-        </div>
-        <a href="https://github.com/physicify-simulab/PulseDispersionAnalyzer" target="_blank" class="github-link" title="View Source on GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-</div>
-             <!-- Add more simulation-card divs here as needed -->
-
-        </div> <!-- end .simulations-grid -->
-
     </main>
 
     <!-- Dynamic Footer Include -->
     <div id="footer-placeholder"></div>
 
-    <!-- Script to include Header/Footer -->
     <script>
-        // Simple function to fetch and insert external HTML snippets
-        // Ensure this function is defined or included if it's in a separate file
+        // Include external HTML
         function includeHTML(elementId, filePath) {
-          fetch(filePath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-              const element = document.getElementById(elementId);
-              if (element) {
-                  element.innerHTML = data;
-              } else {
-                  console.error(`Element with ID '${elementId}' not found.`);
-              }
-            })
-            .catch(error => console.error('Error loading ' + filePath + ':', error));
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading ' + filePath + ':', error));
         }
 
-        // Load Header and Footer
         includeHTML('header-placeholder', 'header.html');
         includeHTML('footer-placeholder', 'footer.html');
-    </script>
 
+        // Share functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.share-button')) {
+                const card = e.target.closest('.simulation-card');
+                const title = card.querySelector('.card-title').textContent;
+                const url = card.querySelector('.card-link').href;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: `Check out this physics simulation: ${title}`,
+                        url: url
+                    });
+                } else {
+                    // Fallback: copy to clipboard
+                    navigator.clipboard.writeText(url);
+                    alert('Link copied to clipboard!');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
