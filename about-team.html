@@ -60,31 +60,8 @@
     <!-- Dynamic Footer Include -->
     <div id="footer-placeholder"></div>
 
-    <!-- Script to include Header/Footer (Same as index.html) -->
-    <script>
-        function includeHTML(elementId, filePath) {
-          fetch(filePath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-              const element = document.getElementById(elementId);
-              if (element) {
-                  element.innerHTML = data;
-              } else {
-                  console.error(`Element with ID '${elementId}' not found.`);
-              }
-            })
-            .catch(error => console.error('Error loading ' + filePath + ':', error));
-        }
-
-        // Load Header and Footer
-        includeHTML('header-placeholder', 'header.html');
-        includeHTML('footer-placeholder', 'footer.html');
-    </script>
+    <!-- Script to include Header/Footer -->
+    <script src="/layout.js" defer></script>
 
 </body>
 </html>

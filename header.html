@@ -8,11 +8,24 @@
                 <span>Physicify SimuLab</span>
             </a>
         </div>
-        <nav class="header-nav">
+        
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+            <div class="hamburger-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </button>
+
+        <nav class="header-nav" id="primary-navigation" data-visible="false">
             <a href="/" class="nav-link">Simulations</a>
             <a href="/about-simulab.html" class="nav-link">About</a>
             <a href="https://github.com/physicify-simulab" target="_blank" class="nav-link">
                 <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.youtube.com/@physicify" target="_blank" class="nav-link">
+                <i class="fab fa-youtube"></i> YouTube
             </a>
         </nav>
     </div>

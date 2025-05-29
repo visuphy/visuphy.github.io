@@ -223,40 +223,7 @@
     <!-- Dynamic Footer Include -->
     <div id="footer-placeholder"></div>
 
-    <script>
-        // Include external HTML
-        function includeHTML(elementId, filePath) {
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading ' + filePath + ':', error));
-        }
-
-        includeHTML('header-placeholder', 'header.html');
-        includeHTML('footer-placeholder', 'footer.html');
-
-        // Share functionality
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.share-button')) {
-                const card = e.target.closest('.simulation-card');
-                const title = card.querySelector('.card-title').textContent;
-                const url = card.querySelector('.card-link').href;
-                
-                if (navigator.share) {
-                    navigator.share({
-                        title: title,
-                        text: `Check out this physics simulation: ${title}`,
-                        url: url
-                    });
-                } else {
-                    // Fallback: copy to clipboard
-                    navigator.clipboard.writeText(url);
-                    alert('Link copied to clipboard!');
-                }
-            }
-        });
-    </script>
+    <!-- Script to include Header/Footer -->
+    <script src="/layout.js" defer></script>
 </body>
 </html>

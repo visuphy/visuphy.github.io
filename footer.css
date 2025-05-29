@@ -16,11 +16,11 @@ footer {
 .footer-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 20px 40px;
+    padding: 50px 20px;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
     gap: 40px;
-    align-items: start;
+    align-items: center; /* Better vertical alignment */
 }
 
 .footer-section h3 {
@@ -76,7 +76,6 @@ footer {
     display: flex;
     gap: 16px;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
 .social-link {
@@ -106,30 +105,9 @@ footer {
     background: #818cf8;
 }
 
-.footer-copyright {
-    font-size: 0.875rem;
-    color: #9ca3af;
-}
-
-[data-theme="dark"] .footer-copyright {
-    color: #6e7681;
-}
-
-.footer-copyright a {
-    color: #4f46e5;
-    text-decoration: none;
-}
-
-[data-theme="dark"] .footer-copyright a {
-    color: #818cf8;
-}
-
-.footer-copyright a:hover {
-    text-decoration: underline;
-}
-
+/* THIS IS THE CHANGED RULE */
 .footer-support {
-    text-align: right;
+    text-align: left; /* Was 'right' */
 }
 
 .support-text {
@@ -159,14 +137,49 @@ footer {
     box-shadow: 0 4px 12px rgba(255, 221, 0, 0.4);
 }
 
+/* Bottom section for copyright */
+.footer-bottom {
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    padding: 20px;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top-color: #30363d;
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+[data-theme="dark"] .footer-copyright {
+    color: #6e7681;
+}
+
+.footer-copyright a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+[data-theme="dark"] .footer-copyright a {
+    color: #818cf8;
+}
+
+.footer-copyright a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 40px;
-        padding: 40px 20px;
+        padding: 40px 20px 30px;
     }
     
+    /* On mobile, this section will be centered like the others */
     .footer-support {
         text-align: center;
     }
