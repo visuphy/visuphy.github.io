@@ -54,10 +54,10 @@ function includeHTML(elementId, filePath, callback) {
 // Main execution block that runs after the initial page is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Load the header, and THEN initialize the mobile menu using the callback
-    includeHTML('header-placeholder', 'header.html', initializeMobileMenu);
+    includeHTML('header-placeholder', '/header.html', initializeMobileMenu);
 
     // Load the footer (no callback needed)
-    includeHTML('footer-placeholder', 'footer.html');
+    includeHTML('footer-placeholder', '/footer.html');
 
     // Re-initialize share button functionality for the index page
     // Check if we are on a page that has share buttons
