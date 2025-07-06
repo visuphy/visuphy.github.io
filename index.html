@@ -26,9 +26,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-background"></div>
-        <!-- Falling elements container - moved outside hero-background -->
         <div class="falling-elements">
-            <!-- Multiple sets of falling elements -->
             <div class="falling-set">
                 <span class="falling-element bracket">&lt;</span>
                 <span class="falling-element apple"></span>
@@ -70,7 +68,6 @@
         </div>
     </section>
 
-    <!-- Rest of content remains the same -->
     <main class="home-container">
         <section class="featured-section">
             <h2 class="section-title">
@@ -84,7 +81,6 @@
         </section>
 
         <div class="simulations-grid">
-            <!-- Cards remain the same -->
             <!-- Gaussian Beam Card -->
             <article class="simulation-card">
                 <a href="/Gaussianbeam" class="card-link">
@@ -107,6 +103,9 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
+                     <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                        <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
+                    </a>
                     <div class="meta-actions">
                         <a href="https://github.com/physicify-simulab/Gaussianbeam" target="_blank" class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
@@ -139,6 +138,9 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
+                    <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                        <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
+                    </a>
                     <div class="meta-actions">
                         <a href="https://github.com/physicify-simulab/Polarization" target="_blank" class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
@@ -172,6 +174,9 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
+                    <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                        <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
+                    </a>
                     <div class="meta-actions">
                         <a href="https://github.com/physicify-simulab/LaserPulseSimulator" target="_blank" class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
@@ -205,6 +210,9 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
+                    <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                        <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
+                    </a>
                     <div class="meta-actions">
                         <a href="https://github.com/physicify-simulab/PulseDispersionAnalyzer" target="_blank" class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
@@ -215,7 +223,6 @@
                     </div>
                 </div>
             </article>
-            <!-- Other cards... -->
         </div>
     </main>
 
@@ -224,5 +231,59 @@
 
     <!-- Script to include Header/Footer -->
     <script src="/layout.js" defer></script>
+    
+    <!-- Script to fetch GitHub last updated dates -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.simulation-card');
+
+            cards.forEach(card => {
+                const githubLinkElement = card.querySelector('.meta-actions a[href*="github.com"]');
+                const updatedLinkElement = card.querySelector('.meta-updated'); // The <a> tag
+                const updatedTextSpan = card.querySelector('.last-updated'); // The <span> inside
+
+                if (!githubLinkElement || !updatedLinkElement || !updatedTextSpan) {
+                    if(updatedTextSpan) updatedTextSpan.textContent = 'Info unavailable';
+                    return;
+                }
+
+                const repoUrl = githubLinkElement.getAttribute('href');
+                const repoPath = new URL(repoUrl).pathname.substring(1);
+                const apiUrl = `https://api.github.com/repos/${repoPath}/commits`;
+                const commitsUrl = `${repoUrl}/commits`; // The URL for the commit history page
+
+                // Set the href for the link
+                updatedLinkElement.setAttribute('href', commitsUrl);
+
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Network response was not ok for ${repoPath}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data.length > 0) {
+                            const lastCommitDate = new Date(data[0].commit.committer.date);
+                            const formattedDate = lastCommitDate.toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            });
+                            updatedTextSpan.textContent = `Updated on ${formattedDate}`;
+                        } else {
+                            updatedTextSpan.textContent = 'No commits found';
+                            updatedLinkElement.style.pointerEvents = 'none'; // Disable link
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit data:', error);
+                        updatedTextSpan.textContent = 'Update date unavailable';
+                        updatedLinkElement.style.pointerEvents = 'none'; // Disable link on error
+                        updatedLinkElement.removeAttribute('href');
+                    });
+            });
+        });
+    </script>
 </body>
 </html>

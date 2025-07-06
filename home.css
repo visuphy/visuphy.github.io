@@ -1,6 +1,5 @@
 /* === CSS Variables === */
 :root {
-    /* Colors */
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
     --bg-tertiary: #e9ecef;
@@ -338,16 +337,19 @@ body {
 /* === Card Meta === */
 .card-meta {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
+    padding: 12px 24px;
     background: var(--bg-tertiary);
     border-top: 1px solid var(--border-color);
+    gap: 12px;
 }
 
 .meta-author {
     font-size: 0.875rem;
     color: var(--text-secondary);
+    flex-grow: 1;
 }
 
 .meta-author a {
@@ -358,6 +360,28 @@ body {
 
 .meta-author a:hover {
     color: var(--accent-primary);
+}
+
+.meta-updated {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    width: 100%;
+    order: 3; /* Places it on the next line */
+    text-align: left;
+    margin-top: 4px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.meta-updated:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+.meta-updated i {
+    margin-right: 6px;
 }
 
 .meta-actions {
