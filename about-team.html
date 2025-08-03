@@ -3,65 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisuPhy - About Team</title>
+    <title>VisuPhy - Meet Our Team</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-
     <!-- Shared Styles -->
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <!-- Page-Specific Styles -->
     <link rel="stylesheet" href="about-team.css">
-
 </head>
 <body>
-
     <!-- Dynamic Header Include -->
     <div id="header-placeholder"></div>
-
+    
     <main class="team-container">
-        <h1>Our Team</h1>
-
+        <h1>Meet Our Team</h1>
+        <p class="team-mission">
+            Passionate educators and developers working to make physics accessible to everyone, everywhere.
+        </p>
+        
         <div class="team-grid">
-
-            <!-- Team Member Card 1: Hussein-Tofaili -->
-            <div class="team-member-card">
-                <img src="https://github.com/Hussein-Tofaili.png" alt="Profile picture of Hussein-Tofaili" class="member-photo">
+            <!-- Founder Card -->
+            <div class="team-member-card founder-card">
+                <img src="https://github.com/Hussein-Tofaili.png" alt="Hussein-Tofaili profile picture" class="member-photo">
                 <div class="member-info">
+                    <div class="member-role">Founder & Lead Developer</div>
                     <h3 class="member-name">
-                        <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                        <a href="https://github.com/Hussein-Tofaili" target="_blank" rel="noopener">Hussein-Tofaili</a>
                     </h3>
                     <p class="member-description">
-                        Founder of VisuPhy (formerly Physicify), passionate about physics education and creating interactive learning tools.
+                        Physics student and founder of VisuPhy. My passion for coding and visualizing how the physics works drove me to build this platform. <br>Free and always will be, because students deserve better.
                     </p>
                 </div>
             </div>
+            
+            <!-- Join Team Card -->
+<div class="team-member-card join-team-card">
+    <img src="https://github.com/github.png?size=80" alt="Join our team" class="member-photo">
+    <div class="member-info">
+        <div class="member-role">Open Position</div>
+        <h3 class="member-name">
+            <a href="mailto:visuphy@gmail.com">Join Our Mission</a>
+        </h3>
+        <p class="member-description">
+            Want to help make physics education accessible to everyone? We welcome physicists, programmers, designers, and anyone passionate about education.
+            <br><br>
+            ❓ <a href="/faq#join-team">Learn more about joining in the FAQ section</a><br>
+            📧 <a href="mailto:visuphy@gmail.com">Contact us</a><br>
+            💻 <a href="https://github.com/visuphy" target="_blank" rel="noopener">Contribute on GitHub</a><br>
+          
+        </p>
+    </div>
+</div>
 
-            <!-- Team Member Card 3: Placeholder -->
-            <div class="team-member-card">
-                 <img src="https://github.com/github.png?size=80" alt="Placeholder profile picture" class="member-photo">
-                <div class="member-info">
-                    <h3 class="member-name">
-                        <a href="#" target="_blank">Future Member</a>
-                    </h3>
-                    <p class="member-description">
-                        Join the team! We welcome contributions to make physics simulations accessible to everyone. <a href="mailto:physicifycontact@gmail.com">Contact us</a> and check out our <a href="https://github.com/visuphy">GitHub</a>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Add more team-member-card divs here as needed -->
-
-        </div> <!-- end .team-grid -->
-
+        </div>
     </main>
-
+    
     <!-- Dynamic Footer Include -->
     <div id="footer-placeholder"></div>
-
     <!-- Script to include Header/Footer -->
     <script src="/layout.js" defer></script>
-
 </body>
 </html>

@@ -1,0 +1,235 @@
+/* --- START OF FILE faq.css --- */
+
+/* FAQ Container */
+.faq-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.faq-container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 2.4em;
+    font-weight: 600;
+}
+
+.faq-subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* FAQ Items */
+.faq-section {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-section:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-color: #dee2e6;
+}
+
+/* FAQ Question (clickable header) */
+.faq-question {
+    padding: 20px 25px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Expand/Collapse Icon */
+.faq-icon {
+    font-size: 1.2em;
+    color: #16a34a;
+    transition: transform 0.3s ease;
+}
+
+.faq-section.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* FAQ Answer */
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-section.active .faq-answer {
+    padding: 0 25px 25px 25px;
+    max-height: 500px; /* Adjust based on content */
+}
+
+.faq-answer p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul {
+    margin: 0 0 15px 0;
+    padding-left: 20px;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.faq-answer strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.faq-answer a {
+    color: #16a34a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.faq-answer a:hover {
+    color: #15803d;
+    text-decoration: underline;
+}
+
+/* Donation Link Styling */
+.donation-link {
+    display: inline-flex;
+    align-items: center;
+    background: #FFDD00;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid #FFDD00;
+}
+
+.donation-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 221, 0, 0.4);
+    background: #FFE838;
+    border-color: #FFE838;
+    color: #000000;
+    text-decoration: none;
+}
+
+.donation-link i {
+    margin-right: 8px;
+    color: #000000;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.highlight-box p {
+    margin: 0;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 0 15px;
+    }
+    
+    .faq-container h1 {
+        font-size: 2em;
+    }
+    
+    .faq-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    
+    .faq-question {
+        padding: 18px 20px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1.1em;
+        padding-right: 10px;
+    }
+    
+    .faq-section.active .faq-answer {
+        padding: 0 20px 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-container {
+        padding: 0 10px;
+        margin: 20px auto;
+    }
+    
+    .faq-container h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    
+    .faq-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 25px;
+    }
+    
+    .faq-question {
+        padding: 15px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1em;
+    }
+    
+    .faq-section.active .faq-answer {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .donation-link {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+/* --- END OF FILE faq.css --- */

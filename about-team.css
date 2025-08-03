@@ -2,112 +2,225 @@
 
 /* Container for the team page content */
 .team-container {
-    max-width: 1200px; /* Adjust max-width as needed */
-    margin: 20px auto; /* Centering and vertical spacing */
-    padding: 0 15px; /* Horizontal padding */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
 }
 
 .team-container h1 {
     text-align: center;
-    margin-bottom: 35px; /* More space below title */
-    color: #333;
-    font-size: 2.2em;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 2.4em;
+    font-weight: 600;
+}
+
+/* Mission statement below title */
+.team-mission {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    font-style: italic;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 25px;
 }
 
 /* Grid layout for the team member cards */
 .team-grid {
-    display: grid;
-    /* Responsive columns: Adjust minmax width (e.g., 350px) */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px; /* Space between cards */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
 }
 
 /* Individual team member card styling */
 .team-member-card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.09);
-    display: flex; /* Align photo and info horizontally */
-    align-items: center; /* Vertically center items */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+}
+
+.team-member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.team-member-card:hover::before {
+    transform: scaleX(1);
 }
 
 .team-member-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #dee2e6;
+}
+
+/* Special styling for founder card */
+.founder-card {
+    border: 2px solid #667eea;
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.founder-card::before {
+    transform: scaleX(1);
 }
 
 /* Member photo styling */
 .member-photo {
-    width: 80px;  /* Fixed width */
-    height: 80px; /* Fixed height */
-    border-radius: 50%; /* Circular frame */
-    object-fit: cover; /* Ensures image covers the area nicely */
-    margin-right: 20px; /* Space between photo and text */
-    flex-shrink: 0; /* Prevent image from shrinking */
-    border: 3px solid #f0f0f0; /* Optional subtle border */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    flex-shrink: 0;
+    border: 4px solid #ffffff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-/* Container for text info (name, description) */
+.team-member-card:hover .member-photo {
+    transform: scale(1.05);
+}
+
+/* Container for text info */
 .member-info {
-    flex-grow: 1; /* Allow text block to take remaining space */
+    flex-grow: 1;
+    padding-top: 5px;
 }
 
 /* Member name styling */
 .member-name {
     margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 1.3em;
+    margin-bottom: 12px;
+    font-size: 1.4em;
     color: #2c3e50;
+    font-weight: 600;
 }
 
 .member-name a {
-    color: inherit; /* Name color */
+    color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.member-name a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.member-name a:hover::after {
+    width: 100%;
 }
 
 .member-name a:hover {
-    color: #0056b3; /* Link hover color */
-    text-decoration: underline;
+    color: #667eea;
+}
+
+/* Role/title styling */
+.member-role {
+    font-size: 0.9em;
+    color: #667eea;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Member description styling */
 .member-description {
     font-size: 0.95em;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #555;
-    margin-bottom: 0; /* Remove bottom margin if it's the last element */
+    margin-bottom: 0;
+}
+
+.member-description a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.member-description a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Join team card special styling */
+.join-team-card {
+    border: 2px dashed #dee2e6;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.join-team-card:hover {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.join-team-card .member-photo {
+    opacity: 0.6;
+    filter: grayscale(100%);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .team-container h1 {
-        font-size: 1.9em;
-        margin-bottom: 30px;
+        font-size: 2.1em;
+        margin-bottom: 12px;
     }
+    
+    .team-mission {
+        font-size: 1em;
+        margin-bottom: 35px;
+        padding: 0 15px;
+    }
+    
     .team-grid {
-        /* Adjust minmax for smaller screens */
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        gap: 25px;
     }
+    
     .team-member-card {
-        padding: 15px;
+        padding: 20px;
+        max-width: 100%;
     }
+    
     .member-photo {
-        width: 70px;
-        height: 70px;
-        margin-right: 15px;
+        width: 80px;
+        height: 80px;
+        margin-right: 18px;
     }
+    
     .member-name {
-        font-size: 1.2em;
-    }
-    .member-description {
-        font-size: 0.9em;
+        font-size: 1.3em;
     }
 }
 
@@ -115,29 +228,43 @@
     .team-container {
         padding: 0 10px;
     }
+    
     .team-container h1 {
-        font-size: 1.7em;
-        margin-bottom: 25px;
+        font-size: 1.8em;
+        margin-bottom: 10px;
     }
+    
+    .team-mission {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+    
     .team-grid {
-        /* Single column on very small screens */
-        grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 20px;
     }
-     .team-member-card {
-        flex-direction: column; /* Stack photo and text vertically */
-        align-items: center; /* Center items */
-        text-align: center; /* Center text */
-     }
-     .member-photo {
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 15px; /* Add bottom margin */
-        width: 90px; /* Make photo slightly larger when stacked */
-        height: 90px;
-     }
-     .member-name {
-         font-size: 1.25em; /* Slightly larger name when stacked */
-     }
+    
+    .team-member-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px 15px;
+    }
+    
+    .member-photo {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .member-name {
+        font-size: 1.35em;
+    }
+    
+    .join-team-card {
+        min-height: 180px;
+    }
 }
 
 /* --- END OF FILE about-team.css --- */
