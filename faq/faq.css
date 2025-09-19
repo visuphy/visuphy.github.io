@@ -79,12 +79,12 @@
     padding: 0 25px;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: max-height 0.4s ease-out; /* Changed transition to max-height for smoother effect */
 }
 
 .faq-section.active .faq-answer {
     padding: 0 25px 25px 25px;
-    max-height: 500px; /* Adjust based on content */
+    /* REMOVED: max-height: 500px; -- This will now be set by JavaScript */
 }
 
 .faq-answer p {
@@ -231,5 +231,3 @@
         margin-top: 15px;
     }
 }
-
-/* --- END OF FILE faq.css --- */

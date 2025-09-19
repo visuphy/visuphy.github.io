@@ -130,28 +130,47 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const faqSections = document.querySelectorAll('.faq-section');
-            
+
             faqSections.forEach(section => {
                 const question = section.querySelector('.faq-question');
-                
+                const answer = section.querySelector('.faq-answer');
+
                 question.addEventListener('click', () => {
-                    // Close other sections
+                    const isActive = section.classList.contains('active');
+
+                    // Close all other sections before opening/closing the current one
                     faqSections.forEach(otherSection => {
-                        if (otherSection !== section && otherSection.classList.contains('active')) {
+                        if (otherSection !== section) {
                             otherSection.classList.remove('active');
+                            otherSection.querySelector('.faq-answer').style.maxHeight = null;
                         }
                     });
-                    
-                    // Toggle current section
-                    section.classList.toggle('active');
+
+                    // Toggle the clicked section
+                    if (isActive) {
+                        // If it was active, close it
+                        section.classList.remove('active');
+                        answer.style.maxHeight = null;
+                    } else {
+                        // If it was not active, open it
+                        section.classList.add('active');
+                        // Set max-height to the scrollHeight of the content
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
                 });
             });
-            
+
             // Check if there's a hash in URL to auto-open a question
             if (window.location.hash) {
                 const targetSection = document.querySelector(window.location.hash);
                 if (targetSection && targetSection.classList.contains('faq-section')) {
+                    const answer = targetSection.querySelector('.faq-answer');
+                    
                     targetSection.classList.add('active');
+                    // Set height for the auto-opened section
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+
+                    // Scroll into view
                     targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
