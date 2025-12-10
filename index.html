@@ -84,7 +84,7 @@
             <article class="simulation-card">
                 <a href="/BeamBench" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/BeamBench/Screenshot.png" 
+                        <img src="/BeamBench/Screenshot.webp" 
                              alt="BeamBench - 3D Optical Sandbox" 
                              class="card-image">
                         <div class="card-overlay">
@@ -120,7 +120,7 @@
             <article class="simulation-card">
                 <a href="/Gaussianbeam" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/Gaussianbeam/Screenshot.png" 
+                        <img src="/Gaussianbeam/Screenshot.webp" 
                              alt="Gaussian Beam Simulation" 
                              class="card-image">
                         <div class="card-overlay">
@@ -155,7 +155,7 @@
             <article class="simulation-card">
                 <a href="/Polarization" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/Polarization/Screenshot.png" 
+                        <img src="/Polarization/Screenshot.webp" 
                              alt="Polarization Simulation" 
                              class="card-image">
                         <div class="card-overlay">
@@ -191,7 +191,7 @@
             <article class="simulation-card">
                 <a href="/LaserPulseSimulator" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/LaserPulseSimulator/Screenshot.png" 
+                        <img src="/LaserPulseSimulator/Screenshot.webp" 
                              alt="Laser Pulse Simulator" 
                              class="card-image">
                         <div class="card-overlay">
@@ -227,7 +227,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/PulseDispersionAnalyzer/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/PulseDispersionAnalyzer/static/Screenshot.png" 
+                        <img src="/PulseDispersionAnalyzer/static/Screenshot.webp" 
                              alt="Pulse Dispersion Analyzer" 
                              class="card-image">
                         <div class="card-overlay">
@@ -262,7 +262,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/MultiPulseInterference/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/MultiPulseInterference/static/Screenshot.png" 
+                        <img src="/MultiPulseInterference/static/Screenshot.webp" 
                              alt="Multi-Pulse Interference Analyzer" 
                              class="card-image">
                         <div class="card-overlay">
@@ -297,7 +297,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/BIntegralFiberCalculator/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/BIntegralFiberCalculator/Screenshot.png" 
+                        <img src="/BIntegralFiberCalculator/Screenshot.webp" 
                              alt="B-Integral Calculater in Fibers" 
                              class="card-image">
                         <div class="card-overlay">
@@ -332,7 +332,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/DiffractionGrating/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/DiffractionGrating/Screenshot.png" 
+                        <img src="/DiffractionGrating/Screenshot.webp" 
                              alt="Diffraction Grating Simulator" 
                              class="card-image">
                         <div class="card-overlay">
@@ -367,7 +367,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/NLSEsolver/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/NLSEsolver/static/Screenshot.png" 
+                        <img src="/NLSEsolver/static/Screenshot.webp" 
                              alt="NLSE Solver" 
                              class="card-image">
                         <div class="card-overlay">
@@ -415,8 +415,8 @@
 
             cards.forEach(card => {
                 const githubLinkElement = card.querySelector('.meta-actions a[href*="github.com"]');
-                const updatedLinkElement = card.querySelector('.meta-updated'); // The <a> tag
-                const updatedTextSpan = card.querySelector('.last-updated'); // The <span> inside
+                const updatedLinkElement = card.querySelector('.meta-updated');
+                const updatedTextSpan = card.querySelector('.last-updated');
 
                 if (!githubLinkElement || !updatedLinkElement || !updatedTextSpan) {
                     if(updatedTextSpan) updatedTextSpan.textContent = 'Info unavailable';
@@ -426,21 +426,23 @@
                 const repoUrl = githubLinkElement.getAttribute('href');
                 const repoPath = new URL(repoUrl).pathname.substring(1);
                 const apiUrl = `https://api.github.com/repos/${repoPath}/commits`;
-                const commitsUrl = `${repoUrl}/commits`; // The URL for the commit history page
+                const commitsUrl = `${repoUrl}/commits`;
 
-                // Set the href for the link
                 updatedLinkElement.setAttribute('href', commitsUrl);
 
                 fetch(apiUrl)
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Network response was not ok for ${repoPath}`);
-                        }
+                        if (!response.ok) throw new Error(`Network error for ${repoPath}`);
                         return response.json();
                     })
                     .then(data => {
                         if (data && data.length > 0) {
-                            const lastCommitDate = new Date(data[0].commit.committer.date);
+                            // FILTER LOGIC: Find the first commit that DOESN'T have [skip-update]
+                            const realCommit = data.find(commit => 
+                                !commit.commit.message.includes('[skip-update]')
+                            ) || data[0]; // Fallback to latest if all are skipped
+
+                            const lastCommitDate = new Date(realCommit.commit.committer.date);
                             const formattedDate = lastCommitDate.toLocaleDateString('en-US', {
                                 year: 'numeric',
                                 month: 'long',
@@ -449,13 +451,13 @@
                             updatedTextSpan.textContent = `Updated on ${formattedDate}`;
                         } else {
                             updatedTextSpan.textContent = 'No commits found';
-                            updatedLinkElement.style.pointerEvents = 'none'; // Disable link
+                            updatedLinkElement.style.pointerEvents = 'none';
                         }
                     })
                     .catch(error => {
                         console.error('Error fetching commit data:', error);
                         updatedTextSpan.textContent = 'Update date unavailable';
-                        updatedLinkElement.style.pointerEvents = 'none'; // Disable link on error
+                        updatedLinkElement.style.pointerEvents = 'none';
                         updatedLinkElement.removeAttribute('href');
                     });
             });
