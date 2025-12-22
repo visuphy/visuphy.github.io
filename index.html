@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisuPhy - Interactive Physics Simulations</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    
+
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Shared Styles -->
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home.css?v=2024122201">
 </head>
+
 <body>
     <!-- Dynamic Header Include -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section - Holiday Edition! -->
+    <section class="hero holiday-hero">
         <div class="hero-background"></div>
-        <div class="falling-elements">
-            <div class="falling-set">
-                <span class="falling-element bracket">&lt;</span>
-                <span class="falling-element apple"></span>
-                <span class="falling-element bracket">/</span>
-                <span class="falling-element bracket">&gt;</span>
-            </div>
-            <div class="falling-set" style="animation-delay: 4s;">
-                <span class="falling-element bracket">&lt;</span>
-                <span class="falling-element apple">🍎</span>
-                <span class="falling-element bracket">/</span>
-                <span class="falling-element bracket">&gt;</span>
-            </div>
-            <div class="falling-set" style="animation-delay: 6s;">
-                <span class="falling-element bracket">&lt;</span>
-                <span class="falling-element apple">🍎</span>
-                <span class="falling-element bracket">/</span>
-                <span class="falling-element bracket">&gt;</span>
-            </div>
+        <!-- Snowflakes container -->
+        <div id="snowflakes" class="snowflakes" aria-hidden="true">
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
         </div>
         <div class="hero-content">
-            <h1 class="hero-title">
+            <h1 class="hero-title holiday-title">
                 VisuPhy
             </h1>
-            <p class="hero-description">
-                Explore the fascinating world of physics through interactive, browser-based simulations. 
-                Open source, educational, and built with passion.
+            <p class="hero-description holiday-description">
+                Explore the fascinating world of physics through interactive, browser-based simulations.
+                Open source, educational, and built with passion.<span id="holiday-message"><br> ❄ Happy holidays!
+                    ❄</span>
             </p>
             <div class="hero-badges">
                 <span class="badge badge-open">
                     <i class="fas fa-code-branch"></i> Open Source
                 </span>
                 <span class="badge badge-free">
-                    <i class="fas fa-gift"></i> Free Forever
+                    <i class="fas fa-gift"></i> Free Forever <i id="badge-snowflake" class="fas fa-snowflake"></i>
                 </span>
                 <span class="badge badge-browser">
                     <i class="fas fa-globe"></i> Browser-Based
@@ -74,7 +74,7 @@
                 Interactive Physics Simulations
             </h2>
             <p class="section-subtitle">
-                Built by the community on 
+                Built by the community on
                 <a href="https://github.com/visuphy/" target="_blank" class="highlight-link">GitHub</a>
             </p>
         </section>
@@ -84,9 +84,7 @@
             <article class="simulation-card">
                 <a href="/BeamBench" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/BeamBench/Screenshot.webp" 
-                             alt="BeamBench - 3D Optical Sandbox" 
-                             class="card-image">
+                        <img src="/BeamBench/Screenshot.webp" alt="BeamBench - 3D Optical Sandbox" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Optics</span>
                             <span class="card-category">beta</span>
@@ -95,7 +93,8 @@
                     <div class="card-body">
                         <h3 class="card-title">BeamBench - 3D Optical Sandbox</h3>
                         <p class="card-description">
-                            Design and simulate complex optical systems in a 3D sandbox, visualizing Gaussian beam propagation and polarization in real-time.
+                            Design and simulate complex optical systems in a 3D sandbox, visualizing Gaussian beam
+                            propagation and polarization in real-time.
                         </p>
                     </div>
                 </a>
@@ -103,11 +102,12 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
-                     <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                    <a href="#" class="meta-updated" target="_blank" title="View commit history">
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/BeamBench" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/BeamBench" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -120,9 +120,7 @@
             <article class="simulation-card">
                 <a href="/Gaussianbeam" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/Gaussianbeam/Screenshot.webp" 
-                             alt="Gaussian Beam Simulation" 
-                             class="card-image">
+                        <img src="/Gaussianbeam/Screenshot.webp" alt="Gaussian Beam Simulation" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Optics</span>
                         </div>
@@ -138,11 +136,12 @@
                     <div class="meta-author">
                         Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
                     </div>
-                     <a href="#" class="meta-updated" target="_blank" title="View commit history">
+                    <a href="#" class="meta-updated" target="_blank" title="View commit history">
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/Gaussianbeam" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/Gaussianbeam" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -155,9 +154,7 @@
             <article class="simulation-card">
                 <a href="/Polarization" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/Polarization/Screenshot.webp" 
-                             alt="Polarization Simulation" 
-                             class="card-image">
+                        <img src="/Polarization/Screenshot.webp" alt="Polarization Simulation" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Optics</span>
                         </div>
@@ -177,7 +174,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/Polarization" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/Polarization" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -191,9 +189,7 @@
             <article class="simulation-card">
                 <a href="/LaserPulseSimulator" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/LaserPulseSimulator/Screenshot.webp" 
-                             alt="Laser Pulse Simulator" 
-                             class="card-image">
+                        <img src="/LaserPulseSimulator/Screenshot.webp" alt="Laser Pulse Simulator" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Ultrafast</span>
                         </div>
@@ -213,7 +209,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/LaserPulseSimulator" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/LaserPulseSimulator" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -227,9 +224,8 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/PulseDispersionAnalyzer/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/PulseDispersionAnalyzer/static/Screenshot.webp" 
-                             alt="Pulse Dispersion Analyzer" 
-                             class="card-image">
+                        <img src="/PulseDispersionAnalyzer/static/Screenshot.webp" alt="Pulse Dispersion Analyzer"
+                            class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Ultrafast</span>
                         </div>
@@ -249,7 +245,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/PulseDispersionAnalyzer" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/PulseDispersionAnalyzer" target="_blank"
+                            class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -262,9 +259,8 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/MultiPulseInterference/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/MultiPulseInterference/static/Screenshot.webp" 
-                             alt="Multi-Pulse Interference Analyzer" 
-                             class="card-image">
+                        <img src="/MultiPulseInterference/static/Screenshot.webp"
+                            alt="Multi-Pulse Interference Analyzer" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Ultrafast</span>
                         </div>
@@ -272,7 +268,8 @@
                     <div class="card-body">
                         <h3 class="card-title">Multi-Pulse Interference Analyzer</h3>
                         <p class="card-description">
-                            Simulate and analyze the temporal and spectral interference patterns of multiple laser pulses with different dispersion characteristics.
+                            Simulate and analyze the temporal and spectral interference patterns of multiple laser
+                            pulses with different dispersion characteristics.
                         </p>
                     </div>
                 </a>
@@ -284,7 +281,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/MultiPulseInterference" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/MultiPulseInterference" target="_blank"
+                            class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -297,9 +295,8 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/BIntegralFiberCalculator/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/BIntegralFiberCalculator/Screenshot.webp" 
-                             alt="B-Integral Calculater in Fibers" 
-                             class="card-image">
+                        <img src="/BIntegralFiberCalculator/Screenshot.webp" alt="B-Integral Calculater in Fibers"
+                            class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Fiber-Optics</span>
                         </div>
@@ -307,7 +304,8 @@
                     <div class="card-body">
                         <h3 class="card-title">B-Integral Calculater in Fibers</h3>
                         <p class="card-description">
-                            Calculates the cumulative nonlinear phase shift (B-Integral) for a user-defined series of fiber sections.
+                            Calculates the cumulative nonlinear phase shift (B-Integral) for a user-defined series of
+                            fiber sections.
                         </p>
                     </div>
                 </a>
@@ -319,7 +317,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/BIntegralFiberCalculator" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/BIntegralFiberCalculator" target="_blank"
+                            class="action-button" title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -332,9 +331,8 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/DiffractionGrating/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/DiffractionGrating/Screenshot.webp" 
-                             alt="Diffraction Grating Simulator" 
-                             class="card-image">
+                        <img src="/DiffractionGrating/Screenshot.webp" alt="Diffraction Grating Simulator"
+                            class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Optics</span>
                         </div>
@@ -342,7 +340,8 @@
                     <div class="card-body">
                         <h3 class="card-title">Diffraction Grating Simulator</h3>
                         <p class="card-description">
-                            A real-time visualization of the diffraction pattern generated when light interacts with a grating.
+                            A real-time visualization of the diffraction pattern generated when light interacts with a
+                            grating.
                         </p>
                     </div>
                 </a>
@@ -354,7 +353,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/DiffractionGrating" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/DiffractionGrating" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -367,9 +367,7 @@
             <article class="simulation-card">
                 <a href="https://visuphy.org/NLSEsolver/" class="card-link">
                     <div class="card-image-wrapper">
-                        <img src="/NLSEsolver/static/Screenshot.webp" 
-                             alt="NLSE Solver" 
-                             class="card-image">
+                        <img src="/NLSEsolver/static/Screenshot.webp" alt="NLSE Solver" class="card-image">
                         <div class="card-overlay">
                             <span class="card-category">Ultrafast</span>
                             <span class="card-category">Fiber-Optics</span>
@@ -378,7 +376,8 @@
                     <div class="card-body">
                         <h3 class="card-title">NLSE Solver</h3>
                         <p class="card-description">
-                            Simulates the propagation of ultrashort optical pulses in nonlinear fibers by numerically solving the generalized Nonlinear Schrödinger Equation (GNLSE).
+                            Simulates the propagation of ultrashort optical pulses in nonlinear fibers by numerically
+                            solving the generalized Nonlinear Schrödinger Equation (GNLSE).
                         </p>
                     </div>
                 </a>
@@ -390,7 +389,8 @@
                         <i class="fas fa-history"></i> <span class="last-updated">Loading...</span>
                     </a>
                     <div class="meta-actions">
-                        <a href="https://github.com/visuphy/NLSEsolver" target="_blank" class="action-button" title="View Source">
+                        <a href="https://github.com/visuphy/NLSEsolver" target="_blank" class="action-button"
+                            title="View Source">
                             <i class="fab fa-github"></i>
                         </a>
                         <button class="action-button share-button" title="Share">
@@ -407,7 +407,7 @@
 
     <!-- Script to include Header/Footer -->
     <script src="/layout.js" defer></script>
-    
+
     <!-- Script to fetch GitHub last updated dates -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -419,7 +419,7 @@
                 const updatedTextSpan = card.querySelector('.last-updated');
 
                 if (!githubLinkElement || !updatedLinkElement || !updatedTextSpan) {
-                    if(updatedTextSpan) updatedTextSpan.textContent = 'Info unavailable';
+                    if (updatedTextSpan) updatedTextSpan.textContent = 'Info unavailable';
                     return;
                 }
 
@@ -438,7 +438,7 @@
                     .then(data => {
                         if (data && data.length > 0) {
                             // FILTER LOGIC: Find the first commit that DOESN'T have [skip-update]
-                            const realCommit = data.find(commit => 
+                            const realCommit = data.find(commit =>
                                 !commit.commit.message.includes('[skip-update]')
                             ) || data[0]; // Fallback to latest if all are skipped
 
@@ -462,6 +462,24 @@
                     });
             });
         });
+
+        // Holiday elements visibility (Dec 22 - Jan 2)
+        (function () {
+            const today = new Date();
+            const month = today.getMonth(); // 0-11
+            const day = today.getDate();
+            const isHolidayPeriod = (month === 11 && day >= 22) || (month === 0 && day <= 2);
+
+            if (!isHolidayPeriod) {
+                const holidayMessage = document.getElementById('holiday-message');
+                const snowflakes = document.getElementById('snowflakes');
+                const badgeSnowflake = document.getElementById('badge-snowflake');
+                if (holidayMessage) holidayMessage.style.display = 'none';
+                if (snowflakes) snowflakes.style.display = 'none';
+                if (badgeSnowflake) badgeSnowflake.style.display = 'none';
+            }
+        })();
     </script>
 </body>
+
 </html>

@@ -13,9 +13,9 @@
     --warning: #ffc107;
     --danger: #dc3545;
     --border-color: #dee2e6;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
     --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --card-hover: #f8f9fa;
 }
@@ -55,83 +55,6 @@ body {
     opacity: 0.1;
     z-index: 0;
 }
-
-/* Falling elements animation - FIXED WITH RANDOM POSITIONS */
-.falling-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.falling-set {
-    position: absolute;
-    top: -150px;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    animation: fall 10s linear infinite;
-}
-
-@keyframes fall {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(calc(100vh + 300px));
-    }
-}
-
-.falling-element {
-    position: absolute;
-    font-size: 3rem;
-    font-weight: bold;
-    display: inline-block;
-    animation: rotate 3s linear infinite;
-}
-
-.falling-element.bracket {
-    color: #5B21B6;
-    font-family: 'JetBrains Mono', monospace;
-    opacity: 0.0;
-    text-shadow: 2px 2px 4px rgba(91, 33, 182, 0.2);
-}
-
-.falling-element.apple {
-    font-size: 3.5rem;
-    opacity: 0.0;
-    filter: drop-shadow(2px 2px 4px rgba(255, 0, 0, 0.2));
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Random positions for each falling element */
-.falling-set:nth-child(1) .falling-element:nth-child(1) { left: 5%; }
-.falling-set:nth-child(1) .falling-element:nth-child(2) { left: 42%; }
-.falling-set:nth-child(1) .falling-element:nth-child(3) { left: 78%; }
-.falling-set:nth-child(1) .falling-element:nth-child(4) { left: 23%; }
-
-.falling-set:nth-child(2) .falling-element:nth-child(1) { left: 67%; }
-.falling-set:nth-child(2) .falling-element:nth-child(2) { left: 15%; }
-.falling-set:nth-child(2) .falling-element:nth-child(3) { left: 89%; }
-.falling-set:nth-child(2) .falling-element:nth-child(4) { left: 35%; }
-
-.falling-set:nth-child(3) .falling-element:nth-child(1) { left: 28%; }
-.falling-set:nth-child(3) .falling-element:nth-child(2) { left: 73%; }
-.falling-set:nth-child(3) .falling-element:nth-child(3) { left: 11%; }
-.falling-set:nth-child(3) .falling-element:nth-child(4) { left: 54%; }
-
-.falling-set:nth-child(4) .falling-element:nth-child(1) { left: 82%; }
-.falling-set:nth-child(4) .falling-element:nth-child(2) { left: 38%; }
-.falling-set:nth-child(4) .falling-element:nth-child(3) { left: 61%; }
-.falling-set:nth-child(4) .falling-element:nth-child(4) { left: 19%; }
 
 .hero-content {
     text-align: center;
@@ -195,13 +118,269 @@ body {
 }
 
 .badge-free {
-    background-color: #d4edda;
-    color: #155724;
+    background: linear-gradient(135deg, #c41e3a 0%, #1a472a 100%);
+    color: #ffffff;
+    animation: shimmer 2s ease-in-out infinite;
 }
 
 .badge-browser {
     background-color: #fff3cd;
     color: #856404;
+}
+
+/* === Holiday Theme Styles === */
+.holiday-hero {
+    background: linear-gradient(180deg,
+            #0a1628 0%,
+            #1a2744 40%,
+            #2d3a52 70%,
+            #1a472a 100%);
+}
+
+.holiday-hero .hero-background {
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    opacity: 1;
+}
+
+.holiday-greeting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.holiday-greeting-small {
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.holiday-greeting-small .holiday-emoji {
+    font-size: 1.2rem;
+}
+
+.holiday-greeting-small .holiday-text {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.holiday-emoji {
+    font-size: 2rem;
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+.holiday-emoji:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.holiday-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffd54f;
+    text-shadow: 0 0 10px rgba(255, 213, 79, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.holiday-title {
+    background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 50%, #bbdefb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+}
+
+.title-sparkle {
+    -webkit-text-fill-color: #ffd54f;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.holiday-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+}
+
+.holiday-subtext {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.badge-holiday {
+    background: linear-gradient(135deg, #c62828 0%, #d32f2f 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4);
+}
+
+/* === Snowflakes Animation === */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10%;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    animation: snowfall linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.snowflake:nth-child(1) {
+    left: 5%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+    font-size: 1.2rem;
+}
+
+.snowflake:nth-child(2) {
+    left: 15%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+    font-size: 1.8rem;
+}
+
+.snowflake:nth-child(3) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    font-size: 1.4rem;
+}
+
+.snowflake:nth-child(4) {
+    left: 35%;
+    animation-duration: 14s;
+    animation-delay: 0.5s;
+    font-size: 1.6rem;
+}
+
+.snowflake:nth-child(5) {
+    left: 45%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+    font-size: 1.3rem;
+}
+
+.snowflake:nth-child(6) {
+    left: 55%;
+    animation-duration: 11s;
+    animation-delay: 1.5s;
+    font-size: 2rem;
+}
+
+.snowflake:nth-child(7) {
+    left: 65%;
+    animation-duration: 13s;
+    animation-delay: 2.5s;
+    font-size: 1.5rem;
+}
+
+.snowflake:nth-child(8) {
+    left: 75%;
+    animation-duration: 8s;
+    animation-delay: 4s;
+    font-size: 1.7rem;
+}
+
+.snowflake:nth-child(9) {
+    left: 85%;
+    animation-duration: 10s;
+    animation-delay: 0.8s;
+    font-size: 1.4rem;
+}
+
+.snowflake:nth-child(10) {
+    left: 92%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    font-size: 1.9rem;
+}
+
+.snowflake:nth-child(11) {
+    left: 10%;
+    animation-duration: 15s;
+    animation-delay: 3.5s;
+    font-size: 1.1rem;
+}
+
+.snowflake:nth-child(12) {
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 1.2s;
+    font-size: 1.6rem;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 0.8;
+    }
+
+    25% {
+        transform: translateY(25vh) rotate(90deg) translateX(15px);
+    }
+
+    50% {
+        transform: translateY(50vh) rotate(180deg) translateX(-15px);
+    }
+
+    75% {
+        transform: translateY(75vh) rotate(270deg) translateX(10px);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg) translateX(-10px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.2);
+    }
 }
 
 /* === Main Container === */
@@ -297,12 +476,12 @@ body {
     left: 0;
     right: 0;
     padding: 15px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
 }
 
 .card-category {
     display: inline-block;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     color: #333;
     padding: 4px 12px;
     border-radius: 16px;
@@ -366,7 +545,8 @@ body {
     font-size: 0.8rem;
     color: var(--text-secondary);
     width: 100%;
-    order: 3; /* Places it on the next line */
+    order: 3;
+    /* Places it on the next line */
     text-align: left;
     margin-top: 4px;
     text-decoration: none;
@@ -414,24 +594,24 @@ body {
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-description {
         font-size: 1rem;
     }
-    
+
     .simulations-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .section-title {
         font-size: 1.5rem;
     }
-    
+
     .falling-element {
         font-size: 2.5rem;
     }
-    
+
     .falling-element.apple {
         font-size: 3rem;
     }
@@ -441,32 +621,32 @@ body {
     .hero-content {
         padding: 40px 20px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-badges {
         gap: 10px;
     }
-    
+
     .badge {
         font-size: 0.75rem;
         padding: 6px 12px;
     }
-    
+
     .card-body {
         padding: 16px;
     }
-    
+
     .card-meta {
         padding: 12px 16px;
     }
-    
+
     .falling-element {
         font-size: 2rem;
     }
-    
+
     .falling-element.apple {
         font-size: 2.5rem;
     }
