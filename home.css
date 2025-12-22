@@ -118,7 +118,7 @@ body {
 }
 
 .badge-free {
-    background: linear-gradient(135deg, #c41e3a 0%, #1a472a 100%);
+    background: linear-gradient(135deg, #c41e3a 0%, #7d4a4a 100%);
     color: #ffffff;
     animation: shimmer 2s ease-in-out infinite;
 }
@@ -231,94 +231,94 @@ body {
     position: absolute;
     top: -10%;
     color: white;
-    font-size: 1.5rem;
+    font-size: 0.7rem;
     opacity: 0.8;
     animation: snowfall linear infinite;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.6);
 }
 
 .snowflake:nth-child(1) {
     left: 5%;
     animation-duration: 8s;
     animation-delay: 0s;
-    font-size: 1.2rem;
+    font-size: 0.5rem;
 }
 
 .snowflake:nth-child(2) {
     left: 15%;
     animation-duration: 12s;
     animation-delay: 1s;
-    font-size: 1.8rem;
+    font-size: 0.8rem;
 }
 
 .snowflake:nth-child(3) {
     left: 25%;
     animation-duration: 10s;
     animation-delay: 2s;
-    font-size: 1.4rem;
+    font-size: 0.6rem;
 }
 
 .snowflake:nth-child(4) {
     left: 35%;
     animation-duration: 14s;
     animation-delay: 0.5s;
-    font-size: 1.6rem;
+    font-size: 0.7rem;
 }
 
 .snowflake:nth-child(5) {
     left: 45%;
     animation-duration: 9s;
     animation-delay: 3s;
-    font-size: 1.3rem;
+    font-size: 0.55rem;
 }
 
 .snowflake:nth-child(6) {
     left: 55%;
     animation-duration: 11s;
     animation-delay: 1.5s;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .snowflake:nth-child(7) {
     left: 65%;
     animation-duration: 13s;
     animation-delay: 2.5s;
-    font-size: 1.5rem;
+    font-size: 0.7rem;
 }
 
 .snowflake:nth-child(8) {
     left: 75%;
     animation-duration: 8s;
     animation-delay: 4s;
-    font-size: 1.7rem;
+    font-size: 0.75rem;
 }
 
 .snowflake:nth-child(9) {
     left: 85%;
     animation-duration: 10s;
     animation-delay: 0.8s;
-    font-size: 1.4rem;
+    font-size: 0.6rem;
 }
 
 .snowflake:nth-child(10) {
     left: 92%;
     animation-duration: 12s;
     animation-delay: 2s;
-    font-size: 1.9rem;
+    font-size: 0.9rem;
 }
 
 .snowflake:nth-child(11) {
     left: 10%;
     animation-duration: 15s;
     animation-delay: 3.5s;
-    font-size: 1.1rem;
+    font-size: 0.5rem;
 }
 
 .snowflake:nth-child(12) {
     left: 50%;
     animation-duration: 9s;
     animation-delay: 1.2s;
-    font-size: 1.6rem;
+    font-size: 0.7rem;
 }
 
 @keyframes snowfall {
