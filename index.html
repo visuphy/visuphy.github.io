@@ -18,9 +18,9 @@
         rel="stylesheet">
 
     <!-- Shared Styles -->
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="home.css?v=2024122201">
+    <link rel="stylesheet" href="header.css?v=2025122201">
+    <link rel="stylesheet" href="footer.css?v=2025122201">
+    <link rel="stylesheet" href="home.css?v=2025122201">
 </head>
 
 <body>
@@ -471,12 +471,17 @@
             const isHolidayPeriod = (month === 11 && day >= 22) || (month === 0 && day <= 2);
 
             if (!isHolidayPeriod) {
-                const holidayMessage = document.getElementById('holiday-message');
-                const snowflakes = document.getElementById('snowflakes');
-                const badgeSnowflake = document.getElementById('badge-snowflake');
-                if (holidayMessage) holidayMessage.style.display = 'none';
-                if (snowflakes) snowflakes.style.display = 'none';
-                if (badgeSnowflake) badgeSnowflake.style.display = 'none';
+                const holidayElements = [
+                    'holiday-message',
+                    'snowflakes',
+                    'badge-snowflake',
+                    'header-snowflake',
+                    'footer-holiday'
+                ];
+                holidayElements.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
             }
         })();
     </script>
