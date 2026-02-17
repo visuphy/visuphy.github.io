@@ -1,5 +1,6 @@
 /* === Modern Header Styles === */
 header {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #e5e7eb;

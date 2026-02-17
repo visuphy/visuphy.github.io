@@ -80,8 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
         checkHolidayVisibility();
     });
 
-    // Load the footer and check holiday visibility
-    includeHTML('footer-placeholder', '/footer.html', checkHolidayVisibility);
+    // Load the footer, update copyright year, and check holiday visibility
+    includeHTML('footer-placeholder', '/footer.html', () => {
+        // Dynamically update copyright year to "2025–currentYear"
+        const currentYear = new Date().getFullYear();
+        const el = document.getElementById('copyright-year');
+        if (el && currentYear > 2025) {
+            el.textContent = '2025\u2013' + currentYear;
+        }
+        checkHolidayVisibility();
+    });
 
     // Re-initialize share button functionality for the index page
     // Check if we are on a page that has share buttons
