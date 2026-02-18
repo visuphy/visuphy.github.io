@@ -430,20 +430,12 @@ body {
     gap: 30px;
 }
 
-/* === Card Styles === */
+/* === 3D Flip Card === */
 .simulation-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1200px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-}
-
-.simulation-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
 }
 
 .card-link {
@@ -453,80 +445,218 @@ body {
     flex: 1;
 }
 
+.card-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.simulation-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* — Shared face rules — */
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+}
+
+/* — FRONT FACE — */
+.card-front {
+    z-index: 2;
+    background: var(--bg-secondary);
+}
+
 .card-image-wrapper {
     position: relative;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    aspect-ratio: 16/9;
 }
 
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1), filter 0.7s ease;
 }
 
 .simulation-card:hover .card-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: brightness(0.8);
 }
 
+/* Category badges on image */
 .card-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    padding: 15px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    padding: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    z-index: 3;
 }
 
 .card-category {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.card-body {
-    padding: 24px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+/* Title strip at bottom of front face */
+.card-front-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 20px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 60%, transparent 100%);
+    z-index: 3;
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    margin: 0 0 12px;
-    color: var(--text-primary);
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.35;
 }
 
-.card-description {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 16px;
-    flex: 1;
+/* — BACK FACE — */
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 35%, #4c1d95 70%, #581c87 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 28px;
+    z-index: 1;
 }
 
-/* === Card Meta === */
+/* Decorative radial glow */
+.card-back::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.card-back::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.card-back-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    height: 100%;
+}
+
+.card-back-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e0e7ff;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.card-back .card-description {
+    font-size: 0.92rem;
+    color: rgba(224, 231, 255, 0.85);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 320px;
+}
+
+/* CTA button */
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    color: #e0e7ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+
+.card-cta i {
+    transition: transform 0.3s ease;
+}
+
+.simulation-card:hover .card-cta:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.simulation-card:hover .card-cta:hover i {
+    transform: translateX(4px);
+}
+
+/* Hover glow on the whole card */
+.simulation-card:hover {
+    filter: drop-shadow(0 8px 32px rgba(99, 102, 241, 0.3));
+}
+
+/* === Card Meta (unchanged structure, visual refinements) === */
 .card-meta {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 24px;
-    background: var(--bg-tertiary);
-    border-top: 1px solid var(--border-color);
-    gap: 12px;
+    padding: 12px 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    gap: 10px;
 }
 
 .meta-author {
-    font-size: 0.875rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
     flex-grow: 1;
 }
@@ -542,13 +672,12 @@ body {
 }
 
 .meta-updated {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     width: 100%;
     order: 3;
-    /* Places it on the next line */
     text-align: left;
-    margin-top: 4px;
+    margin-top: 2px;
     text-decoration: none;
     transition: color 0.2s ease;
     display: inline-flex;
@@ -570,8 +699,8 @@ body {
 }
 
 .action-button {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border: 1px solid var(--border-color);
     background: var(--bg-primary);
     border-radius: 8px;
@@ -581,6 +710,7 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     color: var(--text-secondary);
+    font-size: 0.85rem;
 }
 
 .action-button:hover {
@@ -602,6 +732,10 @@ body {
     .simulations-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .card-inner {
+        aspect-ratio: 16 / 10;
     }
 
     .section-title {
@@ -635,12 +769,24 @@ body {
         padding: 6px 12px;
     }
 
-    .card-body {
-        padding: 16px;
+    .card-inner {
+        aspect-ratio: 16 / 12;
+    }
+
+    .card-back {
+        padding: 24px 18px;
+    }
+
+    .card-back-title {
+        font-size: 1.1rem;
+    }
+
+    .card-back .card-description {
+        font-size: 0.82rem;
     }
 
     .card-meta {
-        padding: 12px 16px;
+        padding: 10px 14px;
     }
 
     .falling-element {
